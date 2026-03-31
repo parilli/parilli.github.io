@@ -1,8 +1,10 @@
 :root {
-    --bg-color: #fcfcfc;
-    --text-color: #333;
-    --accent: #2c3e50; /* Dark elegant blue */
-    --light-grey: #f0f0f0;
+    --bg-color: #fffafb;      /* A very faint, warm white */
+    --text-color: #444;       /* Soft dark grey for readability */
+    --accent: #d4a5a5;        /* Subtle Dusty Rose */
+    --accent-dark: #b88d8d;   /* Deeper rose for hover states */
+    --light-grey: #f0ecec;    /* Muted grey with a hint of pink */
+    --sidebar-bg: #f9f2f2;    /* Very light blush for the sidebar */
 }
 
 body {
@@ -10,60 +12,141 @@ body {
     background: var(--bg-color);
     color: var(--text-color);
     margin: 0;
-    line-height: 1.6;
+    line-height: 1.7;
 }
 
 .container {
     display: flex;
     max-width: 1100px;
     margin: 0 auto;
-    padding: 50px 20px;
+    padding: 60px 20px;
 }
 
+/* Sidebar with a subtle blush background */
 .sidebar {
     width: 30%;
     position: sticky;
-    top: 50px;
+    top: 60px;
     height: fit-content;
-    padding-right: 40px;
-    border-right: 1px solid var(--light-grey);
+    padding: 30px;
+    background: var(--sidebar-bg);
+    border-radius: 15px; /* Rounded corners for elegance */
+    border: 1px solid rgba(212, 165, 165, 0.2);
 }
 
 .content {
     width: 70%;
-    padding-left: 60px;
+    padding-left: 80px;
 }
 
-h1 { font-size: 2rem; margin-bottom: 0.5rem; }
-h2 { border-bottom: 2px solid var(--accent); display: inline-block; margin-top: 2rem; }
+h1 { 
+    font-size: 2.2rem; 
+    margin-bottom: 0.5rem; 
+    color: #222;
+}
 
-.tagline { color: #666; font-style: italic; }
+/* The "Unique" touch: A thick, soft pink underline for headers */
+h2 { 
+    font-size: 1.5rem;
+    position: relative;
+    margin-top: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: #333;
+}
 
-nav a { display: block; text-decoration: none; color: var(--text-color); margin: 10px 0; font-weight: 500; }
-nav a:hover { color: var(--accent); }
+h2::after {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 40px;
+    height: 4px;
+    background: var(--accent);
+    border-radius: 2px;
+}
 
+.tagline { 
+    color: #888; 
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+}
+
+/* Navigation links */
+nav a { 
+    display: block; 
+    text-decoration: none; 
+    color: var(--text-color); 
+    margin: 12px 0; 
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+nav a:hover { 
+    color: var(--accent); 
+    padding-left: 5px; /* Subtle movement on hover */
+}
+
+.social-links a {
+    color: var(--accent);
+    font-size: 1.2rem;
+    margin-right: 15px;
+    transition: color 0.3s;
+}
+
+.social-links a:hover {
+    color: var(--accent-dark);
+}
+
+/* Publication Cards */
 .pub-card {
     display: flex;
-    margin-bottom: 25px;
+    margin-bottom: 30px;
     background: white;
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    padding: 20px;
+    border-radius: 12px;
+    border-left: 4px solid var(--accent); /* Subtle pink accent strip */
+    box-shadow: 0 4px 15px rgba(212, 165, 165, 0.1);
 }
 
-.year { font-weight: bold; margin-right: 20px; color: var(--accent); }
+.year { 
+    font-weight: bold; 
+    margin-right: 25px; 
+    color: var(--accent); 
+    font-size: 1.1rem;
+}
 
+.links a {
+    text-decoration: none;
+    color: var(--accent);
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-right: 10px;
+    text-transform: uppercase;
+}
+
+.links a:hover {
+    color: var(--accent-dark);
+}
+
+/* Button with pink fill */
 .btn {
     display: inline-block;
     background: var(--accent);
     color: white;
-    padding: 10px 20px;
+    padding: 12px 24px;
     text-decoration: none;
-    border-radius: 5px;
-    margin-top: 10px;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: background 0.3s;
 }
 
-@media (max-width: 768px) {
-    .container { flex-direction: column; }
-    .sidebar, .content { width: 100%; padding: 0; position: static; border: none; }
+.btn:hover {
+    background: var(--accent-dark);
+}
+
+/* Responsive adjustments */
+@media (max-width: 850px) {
+    .container { flex-direction: column; padding: 30px 20px; }
+    .sidebar, .content { width: 100%; padding: 20px; position: static; }
+    .sidebar { margin-bottom: 40px; }
 }
